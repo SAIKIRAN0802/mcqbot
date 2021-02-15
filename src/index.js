@@ -1,17 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import QuizApp from './components/QuizApp';
+import HomePage from './components/pages/home-page';
 import reportWebVitals from './reportWebVitals';
-
+import {BrowserRouter as Router,Route} from "react-router-dom";
+import "./style.css"
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+  <Router>
+    <Route exact path="/">
+      <HomePage/>
+    </Route>
+    <Route path="/quiz">
+      <QuizApp totalQuestions={10}/>
+    </Route>
+  </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
