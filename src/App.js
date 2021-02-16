@@ -30,9 +30,6 @@ class App extends Component {
             />
             <Switch>
               <Route exact path="/" render={() => <Redirect to="/search/pharm" />} />
-              <Route path="/beach" render={() => <Item searchTerm="beach" />} />
-              <Route path="/bird" render={() => <Item searchTerm="bird" />} />
-              <Route path="/food" render={() => <Item searchTerm="food" />} />
               <Route path="/search/:searchInput" render={props => (
                   <Search searchTerm={props.match.params.searchInput} />
                 )}

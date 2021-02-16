@@ -9,7 +9,7 @@ const TopicsContextProvider = props => {
   const runSearch = query => {
     axios
       .get(
-        `/.netlify/functions/get_topcs?topic=${query}&per_page=24&format=json&nojsoncallback=1`
+        `/.netlify/functions/get_topcs?topic=${query}`
       )
       .then(response => {
         console.log(response.data);

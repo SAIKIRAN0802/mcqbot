@@ -4,8 +4,8 @@ const Image = ({ id, topic }) => (
   <li>
     <p value={topic} id={id} />
     <a href={"#"} className={"imagebutton"}>
-    <img src={"http://via.placeholder.com/100x100"} />
-    <div value = {topic} className={"imagetext"}/>
+    <img src={"https://www.topic.com/assets/e6ce2344067a24a745e2f6b62187f407.jpg"} />
+    <p value = {topic} style={{color:"black"}} className={"imagetext"}/>
     </a>
   </li>
 );
