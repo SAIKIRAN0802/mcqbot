@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    width: 500,
+    width: "50vw",
     height: 450,
   },
   icon: {
@@ -63,10 +63,12 @@ const Gallery = (props) => {
     noImages = <NoImages />; // return 'not found' component if no images fetched
   }
   return (
-    <GridList cellHeight={160} cols={3}>
+    <div className={classes.root}>
+    <GridList cellHeight={160} cols={4} className={classes.gridList}>
       {topics}
       {noImages}
     </GridList>
+    </div>
   );
 };
 
