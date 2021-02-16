@@ -28,10 +28,10 @@ class QuizApp extends Component {
 
   async componentDidMount() {
     try {
-      const apiUrl = "api/quiz/get_mcqs";
+      const apiUrl = "/.netlify/functions/get_mcqs";
       let mcqs = await axios.get(apiUrl);
       console.log(mcqs);
-      mcqs = await questionJSXgenerator(JSON.parse(mcqs.data));
+      mcqs = await questionJSXgenerator(mcqs.data);
       const QUESTION_DATA = mcqs;
       const totalQuestions = Math.min(10, QUESTION_DATA.length);
       const QUESTIONS = shuffleQuestions(QUESTION_DATA).slice(
