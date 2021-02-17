@@ -64,7 +64,7 @@ const Gallery = (props) => {
   }
   return (
     <div className={classes.root}>
-    <GridList cellHeight={160} cols={4} className={classes.gridList}>
+    <GridList cellHeight={150} cols={4} className={classes.gridList}>
       {topics}
       {noImages}
     </GridList>
