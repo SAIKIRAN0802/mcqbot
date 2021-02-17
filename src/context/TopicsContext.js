@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react";
 import axios from "axios";
-import { apiKey } from "../api/get_topcs";
+import { apiKey } from "../api/get_topics";
 export const TopicsContext = createContext();
 
 const TopicsContextProvider = props => {
@@ -9,10 +9,9 @@ const TopicsContextProvider = props => {
   const runSearch = query => {
     axios
       .get(
-        `/.netlify/functions/get_topcs?topic=${query}`
+        `/.netlify/functions/get_topics?topic=${query}`
       )
       .then(response => {
-        console.log(response.data);
         setTopics(response.data);
         setLoading(false);
       })

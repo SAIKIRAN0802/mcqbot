@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom"
 import PropTypes from 'prop-types';
 import tally from '../helpers/tally';
 
@@ -19,6 +20,7 @@ const Results = ({ userAnswers, score, restartQuiz }) => {
       {fourTries}
       <div className="results-total">Your Total Score is <strong>{score}</strong>.</div>
       <a href="#" onClick={restartQuiz}>Restart Quiz</a>
+      <Link to="/">HOME</Link>
     </div>
   );
 }

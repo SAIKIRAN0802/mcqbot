@@ -28,10 +28,11 @@ class QuizApp extends Component {
 
   async componentDidMount() {
     try {
-      const apiUrl = "/.netlify/functions/get_mcqs";
+      const id = this.props.id;
+      const apiUrl = `/.netlify/functions/get_topic_by_id?id=${id}`;
       let mcqs = await axios.get(apiUrl);
       console.log(mcqs);
-      mcqs = await questionJSXgenerator(mcqs.data);
+      mcqs = await questionJSXgenerator(mcqs.data._source.mcqs);
       const QUESTION_DATA = mcqs;
       const totalQuestions = Math.min(10, QUESTION_DATA.length);
       const QUESTIONS = shuffleQuestions(QUESTION_DATA).slice(
@@ -61,9 +62,9 @@ class QuizApp extends Component {
     }
   }
 
-  static propTypes = {
-    totalQuestions: PropTypes.number.isRequired,
-  };
+  // static propTypes = {
+  //   id: PropTypes.string.isRequired,
+  // };
   
 
   handleAnswerClick = (index) => (e) => {

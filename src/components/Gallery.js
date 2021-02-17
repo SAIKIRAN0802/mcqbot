@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    width: "50vw",
+    width: "100%",
     height: 450,
   },
   icon: {
@@ -37,6 +37,7 @@ const Gallery = (props) => {
     topics = results.map((topic, index) => {
       let id = topic._id;
       let title = topic.fields.name;
+      let url = `/attempt/${id}`
       return (
           <GridListTile
             key={index}
@@ -51,7 +52,7 @@ const Gallery = (props) => {
             <GridListTileBar
               title={title}
               actionIcon={
-                <IconButton href="#" aria-label={`info about ${title}`} className={classes.icon}>
+                <IconButton href={`#/attempt/${id}`} aria-label={`info about ${title}`} className={classes.icon}>
                   <PlayArrowIcon />
                 </IconButton>
               }
@@ -64,12 +65,11 @@ const Gallery = (props) => {
   }
   return (
     <div className={classes.root}>
-    <GridList cellHeight={150} cols={4} className={classes.gridList}>
-      {topics}
       {noImages}
+    <GridList cellHeight={150} cols={3} className={classes.gridList}>
+      {topics}
     </GridList>
     </div>
   );
 };
-
 export default Gallery;

@@ -2,11 +2,10 @@ import React from "react";
 
 var questionJSXgenerator = function (questions) {
   let outputs = [];
-  console.log(questions);
-  questions.forEach((question) => {
+  questions.forEach((question,index) => {
     if(question.answers.length === 4){ 
     let q = {
-      question: <span> {question.question}</span>,
+      question: <span key={index}> {question.question}</span>,
       answers: [
         <span>{question.answers[0]}</span>,
         <span>{question.answers[1]}</span>,
