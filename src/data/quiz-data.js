@@ -7,7 +7,7 @@ var questionJSXgenerator = function (questions) {
     let q = {
       question: <span key={index}> {question.question}</span>,
       answers: [
-        <span>{question.answers[0]}</span>,
+        <span >{question.answers[0]}</span>,
         <span>{question.answers[1]}</span>,
         <span>{question.answers[2]}</span>,
         <span>{question.answers[3]}</span>,

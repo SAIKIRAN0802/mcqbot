@@ -1,6 +1,5 @@
 import React, { createContext, useState } from "react";
 import axios from "axios";
-import { apiKey } from "../api/get_topics";
 export const TopicsContext = createContext();
 
 const TopicsContextProvider = props => {

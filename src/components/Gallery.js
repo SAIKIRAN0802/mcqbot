@@ -1,22 +1,18 @@
 import React from "react";
 import NoImages from "./NoImages";
-import Image from "./Image";
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
-import InfoIcon from '@material-ui/icons/Info';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
+    overflow: 'hidden'
   },
   gridList: {
     width: "100%",
@@ -37,7 +33,6 @@ const Gallery = (props) => {
     topics = results.map((topic, index) => {
       let id = topic._id;
       let title = topic.fields.name;
-      let url = `/attempt/${id}`
       return (
           <GridListTile
             key={index}
@@ -48,11 +43,14 @@ const Gallery = (props) => {
               src={
                 "https://www.dictionary.com/e/wp-content/uploads/2020/01/WisdomvsKnowledge_1000x700_jpg_OHVUvmTo.jpg"
               }
+              alt = {
+                title
+              }
             ></img>
             <GridListTileBar
               title={title}
               actionIcon={
-                <IconButton href={`#/attempt/${id}`} aria-label={`info about ${title}`} className={classes.icon}>
+                <IconButton href={`#/attempt/${id}/${title}`} aria-label={`info about ${title}`} className={classes.icon}>
                   <PlayArrowIcon />
                 </IconButton>
               }

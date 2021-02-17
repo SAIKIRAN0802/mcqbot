@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 import PropTypes from 'prop-types';
 import tally from '../helpers/tally';
 
-const Results = ({ userAnswers, score, restartQuiz }) => {
+const Results = ({ userAnswers, score, restartQuiz,id}) => {
   const triesTotal = tally(userAnswers);
   const oneTry = triesTotal[1] && <div><strong>{triesTotal[1]}</strong> on the first try.</div>;
   const twoTries = triesTotal[2] && <div><strong>{triesTotal[2]}</strong> on the second try.</div>;
@@ -19,7 +19,7 @@ const Results = ({ userAnswers, score, restartQuiz }) => {
       {threeTries}
       {fourTries}
       <div className="results-total">Your Total Score is <strong>{score}</strong>.</div>
-      <a href="#" onClick={restartQuiz}>Restart Quiz</a>
+      <Link to={`#/attempt/${id}`}>Restart Quiz</Link>
       <Link to="/">HOME</Link>
     </div>
   );

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import TopicsContextProvider from "./context/TopicsContext";
 import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
 import Header from "./components/Header";
-import Item from "./components/Item";
 import Search from "./components/Search";
 import NotFound from "./components/NotFound";
 import QuizApp from './components/QuizApp';
@@ -32,8 +31,8 @@ class App extends Component {
                   </div>
                 )}
               />
-              <Route path="/attempt/:triviaid" render={props => (
-                  <QuizApp id={props.match.params.triviaid}/>
+              <Route path="/attempt/:triviaid/:title" render={props => (
+                  <QuizApp id={props.match.params.triviaid} title={props.match.params.title}/>
                 )}
               />
               <Route component={NotFound} />

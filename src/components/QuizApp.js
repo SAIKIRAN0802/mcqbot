@@ -1,5 +1,4 @@
 import React, { Fragment, Component } from "react";
-import PropTypes from "prop-types";
 import Quiz from "./Quiz";
 import Modal from "./Modal";
 import Results from "./Results";
@@ -7,6 +6,7 @@ import shuffleQuestions from "../helpers/shuffleQuestions";
 import questionJSXgenerator from "../data/quiz-data";
 import MCQUESTION from "../data/quiz-qsns";
 import axios from "axios";
+
 class QuizApp extends Component {
   
   state = {
@@ -31,15 +31,13 @@ class QuizApp extends Component {
       const id = this.props.id;
       const apiUrl = `/.netlify/functions/get_topic_by_id?id=${id}`;
       let mcqs = await axios.get(apiUrl);
-      console.log(mcqs);
       mcqs = await questionJSXgenerator(mcqs.data._source.mcqs);
       const QUESTION_DATA = mcqs;
-      const totalQuestions = Math.min(10, QUESTION_DATA.length);
+      const totalQuestions = Math.max(0, QUESTION_DATA.length);
       const QUESTIONS = shuffleQuestions(QUESTION_DATA).slice(
         0,
         totalQuestions
       );
-      console.log(QUESTIONS);
       this.setState({
         questions: QUESTIONS,
         totalQuestions: totalQuestions,
@@ -196,6 +194,7 @@ class QuizApp extends Component {
           score={score}
           restartQuiz={this.restartQuiz}
           userAnswers={userAnswers}
+          id = {this.props.id}
         />
       );
     } else
@@ -208,6 +207,7 @@ class QuizApp extends Component {
             score={score}
             handleAnswerClick={this.handleAnswerClick}
             handleEnterPress={this.handleEnterPress}
+            title={this.props.title}
           />
           {modal.state === "show" && <Modal modal={modal} />}
         </Fragment>
