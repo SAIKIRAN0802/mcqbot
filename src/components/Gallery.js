@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   gridList: {
     width: "100%",
     height: 450,
+    borderRadius:"5%",
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
@@ -48,6 +49,7 @@ const Gallery = (props) => {
               }
             ></img>
             <GridListTileBar
+
               title={title}
               actionIcon={
                 <IconButton href={`#/attempt/${id}/${title}`} aria-label={`info about ${title}`} className={classes.icon}>
@@ -64,7 +66,7 @@ const Gallery = (props) => {
   return (
     <div className={classes.root}>
       {noImages}
-    <GridList cellHeight={150} cols={3} className={classes.gridList}>
+    <GridList cellHeight={150} cols={4} className={classes.gridList}>
       {topics}
     </GridList>
     </div>

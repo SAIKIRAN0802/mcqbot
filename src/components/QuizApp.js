@@ -33,7 +33,7 @@ class QuizApp extends Component {
       let mcqs = await axios.get(apiUrl);
       mcqs = await questionJSXgenerator(mcqs.data._source.mcqs);
       const QUESTION_DATA = mcqs;
-      const totalQuestions = Math.max(0, QUESTION_DATA.length);
+      const totalQuestions = Math.min(20, QUESTION_DATA.length);
       const QUESTIONS = shuffleQuestions(QUESTION_DATA).slice(
         0,
         totalQuestions

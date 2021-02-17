@@ -20,10 +20,10 @@ class App extends Component {
         <HashRouter basename="/trivia">
           <div className="container">
             <Switch>
-              <Route exact path="/" render={() => <Redirect to="/search/pharm" />} />
+              <Route exact path="/" render={() => <Redirect to="/search/*" />} />
               <Route path="/search/:searchInput" render={props => (
                   <div>
-                    <Header
+                  <Header
                   handleSubmit={this.handleSubmit}
                   history={props.history}
                 />
