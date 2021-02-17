@@ -5,10 +5,10 @@ import Answer from './Answer';
 const Question = ({ question, answers, handleAnswerClick, handleEnterPress }) => {
   return (
     <li className="question">
-      <h2 className="question-title" tabIndex="0">
+      <h2 className="question-title" tabIndex="0" style={{textAlign:"left"}} >
         {question}
       </h2>
-      <ul className="question-answers" tabIndex="-1">
+      <ul className="question-answers" tabIndex="-1" style={{textAlign:"left"}}>
         {answers.map((answer, index) => {
           return (
             <Answer

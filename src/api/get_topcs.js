@@ -1,13 +1,9 @@
 const axios = require('axios')
 export async function handler(event, context, callback) {
     const topic = event.queryStringParameters.topic;
-    axios.get(`http://34.68.254.34:8000/get_topcs?topic=${topic}`).then((data) => {
-      console.log(data.data);
-      callback(null, {
-        statusCode: 200,
-        body: JSON.stringify(data.data.hits.hits),
-      });
-    }).catch(err => {
-      console.log(err);
-    });
+    const data = await axios.get(`http://34.68.254.34:8000/get_topcs?topic=${topic}`);
+    callback(null, {
+      statusCode: 200,
+      body: JSON.stringify(data.data.hits.hits),
+    })
   }

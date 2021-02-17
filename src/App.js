@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <TopicsContextProvider>
-        <HashRouter basename="/SearchTopic">
+        <HashRouter basename="/trivia">
           <div className="container">
             <Route
               render={props => (
