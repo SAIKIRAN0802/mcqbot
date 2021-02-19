@@ -5,7 +5,7 @@ var questionJSXgenerator = function (questions) {
   questions.forEach((question,index) => {
     if(question.answers.length === 4){ 
     let q = {
-      question: <span key={index}> {question.question}</span>,
+      question: <span key={question.id}> {question.question}</span>,
       answers: [
         <span >{question.answers[0]}</span>,
         <span>{question.answers[1]}</span>,

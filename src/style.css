@@ -10,7 +10,7 @@ body {
   width: 100%;
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 9px;
-  background: rgb(218, 218, 218);
+  background: rgb(249,219,61);
   color: #222;
   margin: 0;
   padding: 0;
@@ -294,4 +294,141 @@ code {
   body {
     overflow: hidden;
   }
+}
+
+/* from grid */
+
+
+html, body {
+  margin: 0;
+	font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	scroll-behavior: smooth;
+	-webkit-font-smoothing: antialiased;
+}
+.video-sec-wrap {
+	width: 100%;
+	min-height: 100vh;
+}
+.video-sec {
+	width: 90%;
+	margin: 3em auto;
+	border-bottom: 2px solid #353535;
+	text-align: left;
+}
+.video-sec-middle {
+	grid-template-columns: repeat(3,1fr);
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	grid-template-rows: auto;
+	grid-row-gap: 15px;
+	grid-column-gap: 10px;
+	padding: 20px 0;
+}
+.thumb-wrap {
+	display: inline;
+	cursor: pointer;
+}
+.thumb {
+	display: block;
+  border-radius: 5%;
+	margin: .4em;
+	width: 100%;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	opacity: 1;
+	transition: all .2s ease-in-out;
+  max-height: 200px;
+}
+.thumb:hover {
+	opacity: .8;
+	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .5);
+}
+.thumb-info {
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	padding: .4em;
+}
+.thumb-title {
+	color: #0c0a0a;
+	margin: 0;
+	font-size: 1.2em;
+}
+.thumb-user {
+	color: #080202;
+	display: block;
+	margin: 0;
+	font-size: .9em;
+}
+.thumb-text {
+	color: #7e7e7e;
+	display: inline-block;
+	margin: 0;
+	font-size: .8em;
+}
+.video-sec-title {
+	font-weight: bolder;
+	font-size: 1.4em;
+	color: #000000;
+	margin: 5px 0 10px 10px;
+}
+.video-showmore {
+	font-weight: bold;
+	font-variant: all-petite-caps;
+	display: block;
+	color: #7e7e7e;
+	padding: 10px;
+	font-size: 1.2em;
+}
+@media only screen and (max-width: 1456px) {
+	.video-sec-middle {
+		grid-template-columns: repeat(4,1fr);
+	}
+}
+@media only screen and (max-width: 1024px) {
+	.video-sec-middle {
+	  grid-template-columns: repeat(3,1fr);
+	}
+}
+@media only screen and (max-width: 756px) {
+  .video-sec-middle {
+   grid-template-columns: repeat(2,1fr);
+  }
+}
+@media only screen and (max-width: 496px) {
+  .video-sec-middle {
+   grid-template-columns: repeat(1,1fr);
+  }
+}
+
+.rating {
+  display: inline-block;
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+  color:black;
+}
+
+.like,
+.dislike {
+  display: inline-block;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.dislike:hover
+.like:hover {
+  color: #a70e0e;
+  transition: all .2s ease-in-out;
+  transform: scale(1.1);
+}
+
+.like:hover {
+  color: #133ae7;
+  transition: all .2s ease-in-out;
+  transform: scale(1.1);
+}
+
+.active {
+  color: #2EBDD1;
 }
