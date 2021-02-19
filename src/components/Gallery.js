@@ -21,7 +21,7 @@ const Gallery = (props) => {
           <a href={`#/attempt/${id}/${title}`}>
             <img className="thumb" src={"https://www.dictionary.com/e/wp-content/uploads/2020/01/WisdomvsKnowledge_1000x700_jpg_OHVUvmTo.jpg"} />
             <div className="thumb-info">
-              <p className="thumb-title">{title}</p>
+              <p className="thumb-title" style={{ align: "center" }}>{title}</p>
             </div>
           </a>
         </li>

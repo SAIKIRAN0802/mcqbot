@@ -1,7 +1,7 @@
 import React from "react";
 
 let iamgesnos  = [2, 25, 6, 7, 21, 12, 13, 28, 29];
-let names = ["Movies","management","sports","health","technology", "English", "Coding", "Math","Travel"]
+let names = ["Movies","management","sports","health","English", "Technology", "Coding", "Math","Travel"]
 
 const tiles = ({ searchTerm }) => {
   let topics = iamgesnos.map((imageno, index) => {

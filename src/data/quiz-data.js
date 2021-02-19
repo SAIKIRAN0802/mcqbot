@@ -13,6 +13,7 @@ var questionJSXgenerator = function (questions) {
         <span>{question.answers[3]}</span>,
       ],
       correct: question.correct-1,
+      question_id:question.id
     };
     outputs.push(q);
     }

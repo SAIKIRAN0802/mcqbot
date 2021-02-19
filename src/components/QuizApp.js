@@ -63,7 +63,11 @@ class QuizApp extends Component {
   // static propTypes = {
   //   id: PropTypes.string.isRequired,
   // };
-  
+  handleDownVoteClick = () =>(e) =>{
+    const { questions, step, userAnswers } = this.state;
+    console.log(e);
+    console.log(questions[0].id);
+  } 
 
   handleAnswerClick = (index) => (e) => {
     const { questions, step, userAnswers } = this.state;
@@ -208,6 +212,7 @@ class QuizApp extends Component {
             handleAnswerClick={this.handleAnswerClick}
             handleEnterPress={this.handleEnterPress}
             title={this.props.title}
+            handleDownVoteClick={this.handleDownVoteClick}
           />
           {modal.state === "show" && <Modal modal={modal} />}
         </Fragment>

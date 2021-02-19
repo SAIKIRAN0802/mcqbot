@@ -7,6 +7,7 @@ const Question = ({
   answers,
   handleAnswerClick,
   handleEnterPress,
+  handleDownVoteClick
 }) => {
   return (
     <li className="question">
@@ -35,7 +36,7 @@ const Question = ({
           <i className="fa fa-thumbs-up fa-2x like" aria-hidden="true"></i>
         </div>
         <div className="dislike grow">
-          <i className="fa fa-thumbs-down fa-2x like" aria-hidden="true"></i>
+          <i className="fa fa-thumbs-down fa-2x like" onClick={handleDownVoteClick} aria-hidden="true"></i>
         </div>
       </div>
     </li>

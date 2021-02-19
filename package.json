@@ -13,6 +13,7 @@
     "http-proxy-middleware": "^1.0.6",
     "laxios": "0.0.7",
     "mdbreact": "^5.0.1",
+    "netlify-cli": "^3.8.4",
     "react": "^17.0.1",
     "react-css-grid": "^2.0.0-0",
     "react-dom": "^17.0.1",
