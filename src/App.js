@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import TopicsContextProvider from "./context/TopicsContext";
-import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
+import TriviaContextProvider from "./context/TriviaContext";
+import Trivia from "./components/trivia";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import NotFound from "./components/NotFound";
-import QuizApp from "./components/QuizApp";
 class App extends Component {
   // Prevent page reload, clear input, set URL and push history on submit
   handleSubmit = (e, history, searchInput) => {
@@ -45,15 +46,17 @@ class App extends Component {
                   </div>
                 )}
               />
-              <Route
-                path="/attempt/:triviaid/:title"
-                render={(props) => (
-                  <QuizApp
-                    id={props.match.params.triviaid}
-                    title={props.match.params.title}
-                  />
-                )}
-              />
+              <TriviaContextProvider>
+                <Route
+                  path="/attempt/:triviaid/:title"
+                  render={(props) => (
+                    <Trivia
+                      trivia_id={props.match.params.triviaid}
+                      title={props.match.params.title}
+                    />
+                  )}
+                />
+              </TriviaContextProvider>
               <Route component={NotFound} />
             </Switch>
           </div>

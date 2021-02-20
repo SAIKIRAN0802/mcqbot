@@ -1,15 +1,15 @@
 import React, { createContext, useState } from "react";
 import axios from "axios";
-export const TopicsContext = createContext();
+export const TriviaContext = createContext();
 
-const TopicsContextProvider = (props) => {
-  const [topics, setTopics] = useState([]);
+const TriviaCOntextProvider = (props) => {
+  const [mcqs, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
   const runSearch = (query) => {
     axios
-      .get(`/.netlify/functions/get_topics?topic=${query}`)
+      .get(`/.netlify/functions/get_topic_by_id?id=${query}`)
       .then((response) => {
-        setTopics(response.data);
+        setQuestions(response.data._source.mcqs);
         setLoading(false);
       })
       .catch((error) => {
@@ -20,10 +20,9 @@ const TopicsContextProvider = (props) => {
       });
   };
   return (
-    <TopicsContext.Provider value={{ topics, loading, runSearch }}>
+    <TriviaContext.Provider value={{ mcqs, loading, runSearch }}>
       {props.children}
-    </TopicsContext.Provider>
+    </TriviaContext.Provider>
   );
 };
-
-export default TopicsContextProvider;
+export default TriviaCOntextProvider;

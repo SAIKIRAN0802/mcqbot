@@ -7,57 +7,36 @@ import questionJSXgenerator from "../data/quiz-data";
 import MCQUESTION from "../data/quiz-qsns";
 import axios from "axios";
 
-class QuizApp extends Component {
+class QuizDemo extends Component {
   
   state = {
-    questions: MCQUESTION,
-    totalQuestions: 0,
-    userAnswers: MCQUESTION.map(() => {
-      return {
-        tries: 0,
-      };
-    }),
-    step: 0,
-    score: 0,
-    modal: {
-      state: "hide",
-      praise: "",
-      points: "",
-    }
+    ...this.getInitialState(this.props.mcqs)
   }
 
-  async componentDidMount() {
-    try {
-      const id = this.props.id;
-      const apiUrl = `/.netlify/functions/get_topic_by_id?id=${id}`;
-      let mcqs = await axios.get(apiUrl);
-      mcqs = await questionJSXgenerator(mcqs.data._source.mcqs);
-      const QUESTION_DATA = mcqs;
-      const totalQuestions = Math.min(20, QUESTION_DATA.length);
-      const QUESTIONS = shuffleQuestions(QUESTION_DATA).slice(
-        0,
-        totalQuestions
-      );
-      this.setState({
-        questions: QUESTIONS,
-        totalQuestions: totalQuestions,
-        userAnswers: QUESTIONS.map(() => {
-          return {
-            tries: 0,
-          };
-        }),
-        step: 1,
-        score: 0,
-        modal: {
-          state: "hide",
-          praise: "",
-          points: "",
-        },
-      });
-
-    } catch(err) {
-      // console.log(err);
-    }
+  getInitialState(mcqs) {
+    mcqs = questionJSXgenerator(mcqs);
+    const QUESTION_DATA = mcqs;
+    const totalQuestions = Math.min(20, QUESTION_DATA.length);
+    const QUESTIONS = shuffleQuestions(QUESTION_DATA).slice(
+      0,
+      totalQuestions
+    );
+    return {
+      questions: QUESTIONS,
+      totalQuestions: totalQuestions,
+      userAnswers: QUESTIONS.map(() => {
+        return {
+          tries: 0
+        }
+      }),
+      step: 1,
+      score: 0,
+      modal: {
+        state: 'hide',
+        praise: '',
+        points: ''
+      }
+    };
   }
 
   // static propTypes = {
@@ -220,4 +199,4 @@ class QuizApp extends Component {
   }
 }
 
-export default QuizApp;
+export default QuizDemo;
